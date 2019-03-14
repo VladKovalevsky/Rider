@@ -1,0 +1,128 @@
+
+.btn {
+  line-height: 1;
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  background: 0 0;
+  font-family: inherit;
+  transition: all .3s;
+}
+
+.btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #54c390;
+  border: 2px solid  rgb(84, 195, 144);
+  padding: 16px 8px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: width .3s;
+    background-image: -webkit-linear-gradient(bottom, rgb(47,179,136) 0%, rgb(128,214,166) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(47,179,136) 0%, rgb(128,214,166) 100%);
+    background-image: linear-gradient(to top, rgb(47,179,136) 0%, rgb(128,214,166) 100%);
+    z-index: -10;
+    top: 0;
+  }
+
+
+  &[disabled] {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  + .btn-primary--inactive {
+    border-left: none;
+  }
+
+  &--inactive {
+
+    border-color: rgb(214, 214, 214);
+    color: #999996;
+  }
+}
+
+
+@media only screen and (max-width: 47.9em) {
+  .btn-primary{
+    padding: 10px 8px;
+    font-size: 12px;
+    border-width: 1px;
+
+    .mac &,
+    .android & {
+      padding: 11px 8px 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 48em) {
+
+  .btn-primary {
+
+    &--minus {
+
+      &:before {
+        content: '';
+        display: inline-block;
+        background-color: #54c390;
+        width: 24px;
+        height: 2px;
+        position: absolute;
+        left: 18px;
+        transition: all .6s;
+        top: 50%;
+      }
+
+      &:hover {
+
+        &:before {
+          background-color: white;
+          left: calc(100% - 36px)
+        }
+      }
+    }
+
+    &:hover {
+      color: white;
+
+      &:after {
+        width: calc(100% + 2px);
+      }
+    }
+  }
+
+  .btn-slider {
+
+    &:hover {
+
+      &:before {
+        background: url('./media/img/arrow-secondary.png');
+        background-size: 18px 12px;
+      }
+
+      &:after {
+        width: calc(100% + 2px);
+      }
+    }
+  }
+}
